@@ -6,6 +6,7 @@ import org.hibernate.Hibernate;
 
 import java.util.Date;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee")
@@ -13,21 +14,20 @@ import java.util.Objects;
 @NoArgsConstructor
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id", unique = true, nullable = false)
-    private Integer id;
+    private Long id;
     @Column(name = "full_name")
     private String fullName;
     @Column(name = "phone_number")
     private String phoneNumber;
     @Column(name = "personal_email")
     private String personalEmail;
-    @Column(name = "vissoft_email")
-    private String vissoftEmail;
+    @Column(name = "company_email")
+    private String companyEmail;
     @Column(name = "image")
     private String image;
     @Column(name = "hire_date")
@@ -51,6 +51,33 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "title_id")
     private Title title;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private Set<Contract> contract;
+
+    @OneToOne(mappedBy = "employee")
+    private User user;
+
+    @OneToOne(mappedBy = "employee")
+    private EmployeeDetail employeeDetail;
+
+    @OneToOne(mappedBy = "employee")
+    private EmployeeAddress employeeAddress;
+
+    @OneToOne(mappedBy = "employee")
+    private BankAccount bankAccount;
+
+    @OneToOne(mappedBy = "employee")
+    private Document document;
+
+    @OneToOne(mappedBy = "employee")
+    private Education education;
+
+    @OneToOne(mappedBy = "employee")
+    private Insurance insurance;
+
+    @OneToOne(mappedBy = "employee")
+    private UserTax userTax;
 
     @Override
     public boolean equals(Object o) {

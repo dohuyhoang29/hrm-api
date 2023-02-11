@@ -19,7 +19,7 @@ public class Title {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(columnDefinition = "nvarchar(100)", name = "name")
     private String name;
