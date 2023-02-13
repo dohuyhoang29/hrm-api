@@ -1,6 +1,7 @@
 package com.aptech.hrmapi.model;
 
 
+import com.aptech.hrmapi.model.role.Role;
 import com.aptech.hrmapi.model.role.RoleAssign;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -63,4 +64,9 @@ public class User {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     private Employee employee;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "assigned_role",joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 }
