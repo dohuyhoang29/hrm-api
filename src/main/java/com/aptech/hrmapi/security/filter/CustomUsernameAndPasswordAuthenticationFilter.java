@@ -1,6 +1,9 @@
 package com.aptech.hrmapi.security.filter;
 
+import com.aptech.hrmapi.common.Response;
+import com.aptech.hrmapi.model.User;
 import com.aptech.hrmapi.repository.UserRepository;
+import com.aptech.hrmapi.response.ResponseBody;
 import com.aptech.hrmapi.security.utils.SpringContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
@@ -13,6 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Optional;
 
 public class CustomUsernameAndPasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;
@@ -30,6 +34,12 @@ public class CustomUsernameAndPasswordAuthenticationFilter extends UsernamePassw
 
             ApplicationContext context = SpringContext.getApplicationContext();
             UserRepository userRepository = (UserRepository) context.getBean("UserRepository");
+            Optional<User> user = userRepository.findByUsername(credentials.getUsername());
+
+            //validate username
+            if (!user.isPresent()) {
+                ResponseBody responseBody = new ResponseBody(Response.USER_ID_NOT_FOUND);
+            }
         } catch (Exception e) {
 
         }

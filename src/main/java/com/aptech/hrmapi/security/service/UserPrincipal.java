@@ -1,7 +1,7 @@
 package com.aptech.hrmapi.security.service;
 
 import com.aptech.hrmapi.common.Constant;
-import com.aptech.hrmapi.dto.response.FeatureActionResponse;
+import com.aptech.hrmapi.response.FeatureActionResponse;
 import com.aptech.hrmapi.model.User;
 import com.aptech.hrmapi.model.role.Role;
 import lombok.AllArgsConstructor;

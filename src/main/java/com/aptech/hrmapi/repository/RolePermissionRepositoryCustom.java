@@ -1,6 +1,6 @@
 package com.aptech.hrmapi.repository;
 
-import com.aptech.hrmapi.dto.response.FeatureActionResponse;
+import com.aptech.hrmapi.response.FeatureActionResponse;
 
 import java.util.List;
 

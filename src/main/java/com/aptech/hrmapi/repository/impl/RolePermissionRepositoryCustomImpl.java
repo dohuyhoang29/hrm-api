@@ -1,6 +1,6 @@
 package com.aptech.hrmapi.repository.impl;
 
-import com.aptech.hrmapi.dto.response.FeatureActionResponse;
+import com.aptech.hrmapi.response.FeatureActionResponse;
 import com.aptech.hrmapi.repository.RolePermissionRepositoryCustom;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

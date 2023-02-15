@@ -1,4 +1,4 @@
-package com.aptech.hrmapi.dto.response;
+package com.aptech.hrmapi.response;
 
 import lombok.Data;
 
