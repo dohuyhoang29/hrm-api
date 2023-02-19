@@ -2,7 +2,7 @@ package com.aptech.hrmapi.model.role;
 
 import com.aptech.hrmapi.model.Action;
 import com.aptech.hrmapi.model.Feature;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

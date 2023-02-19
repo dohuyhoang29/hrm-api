@@ -1,11 +1,9 @@
 package com.aptech.hrmapi.model;
 
 import com.aptech.hrmapi.model.role.RolePermission;
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import javax.persistence.*;
+
+import lombok.*;
 
 import java.util.Date;
 import java.util.HashSet;
@@ -17,6 +15,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Action {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

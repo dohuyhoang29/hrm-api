@@ -2,9 +2,9 @@ package com.aptech.hrmapi.repository.impl;
 
 import com.aptech.hrmapi.response.FeatureActionResponse;
 import com.aptech.hrmapi.repository.RolePermissionRepositoryCustom;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

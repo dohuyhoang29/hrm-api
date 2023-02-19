@@ -1,7 +1,7 @@
 package com.aptech.hrmapi.model.role;
 
 import com.aptech.hrmapi.model.User;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

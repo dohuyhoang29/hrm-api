@@ -2,7 +2,7 @@ package com.aptech.hrmapi.security.jwt;
 
 import com.aptech.hrmapi.security.service.UserPrincipal;
 import io.jsonwebtoken.*;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +12,7 @@ import java.util.Date;
 
 @Transactional
 @Component
+@SuppressWarnings("all")
 public class JwtProvider {
     private static final Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
@@ -28,7 +29,7 @@ public class JwtProvider {
                 .setSubject(userPrincipal.getUsername())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
-                .signWith(SignatureAlgorithm.ES512, jwtSecret)
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
 
