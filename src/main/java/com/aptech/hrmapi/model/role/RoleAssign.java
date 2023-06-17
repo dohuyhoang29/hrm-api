@@ -39,13 +39,13 @@ public class RoleAssign {
     @Column(name = "modified_date", nullable = false)
     private Date modifiedDate;
 
-    public RoleAssign(User user, Role role, Date createdDate, String createdBy, Date modifiedDate, String modifiedBy) {
+    public RoleAssign(User user, Role role, Date now, String username) {
         this.id = new RoleAssignId(user.getId(), role.getId());
         this.user = user;
         this.role = role;
-        this.createdBy = createdBy;
-        this.createdDate = createdDate;
-        this.modifiedBy = modifiedBy;
-        this.modifiedDate = modifiedDate;
+        this.createdBy = username;
+        this.createdDate = now;
+        this.modifiedBy = username;
+        this.modifiedDate = now;
     }
 }
